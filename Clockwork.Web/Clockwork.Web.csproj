@@ -1,0 +1,930 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C746601-B1E6-4A18-8FCB-55582976384F}</ProjectGuid>
+    <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Clockwork.Web</RootNamespace>
+    <AssemblyName>Clockwork.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ReleaseVersion>1.0</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress>
+    </Use64BitIISExpress>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ServiceLogController.cs" />
+    <Compile Include="Controllers\TimeZoneController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\site.css" />
+    <Content Include="Content\css\skin-blue.css" />
+    <Content Include="Content\js\app\currenttime\cw.currenttime.js" />
+    <Content Include="Content\js\app\modalform.js" />
+    <Content Include="Content\js\app\timezone\cw.timezone.js" />
+    <Content Include="Content\js\navigation.js" />
+    <Content Include="Content\js\site.js" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Content\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Content\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Content\lib\bootstrap\dist\js\npm.js" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\lib\bootstrap\Gruntfile.js" />
+    <Content Include="Content\lib\bootstrap\grunt\bs-commonjs-generator.js" />
+    <Content Include="Content\lib\bootstrap\grunt\bs-glyphicons-data-generator.js" />
+    <Content Include="Content\lib\bootstrap\grunt\bs-lessdoc-parser.js" />
+    <Content Include="Content\lib\bootstrap\grunt\bs-raw-files-generator.js" />
+    <Content Include="Content\lib\bootstrap\grunt\change-version.js" />
+    <Content Include="Content\lib\bootstrap\js\affix.js" />
+    <Content Include="Content\lib\bootstrap\js\alert.js" />
+    <Content Include="Content\lib\bootstrap\js\button.js" />
+    <Content Include="Content\lib\bootstrap\js\carousel.js" />
+    <Content Include="Content\lib\bootstrap\js\collapse.js" />
+    <Content Include="Content\lib\bootstrap\js\dropdown.js" />
+    <Content Include="Content\lib\bootstrap\js\modal.js" />
+    <Content Include="Content\lib\bootstrap\js\popover.js" />
+    <Content Include="Content\lib\bootstrap\js\scrollspy.js" />
+    <Content Include="Content\lib\bootstrap\js\tab.js" />
+    <Content Include="Content\lib\bootstrap\js\tooltip.js" />
+    <Content Include="Content\lib\bootstrap\js\transition.js" />
+    <Content Include="Content\lib\bootstrap\package.js" />
+    <Content Include="Content\lib\font-awesome\.gitignore" />
+    <Content Include="Content\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\lib\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\lib\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Content\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <Content Include="Content\lib\jquery-validation\build\release.js" />
+    <Content Include="Content\lib\jquery-validation\dist\additional-methods.js" />
+    <Content Include="Content\lib\jquery-validation\dist\additional-methods.min.js" />
+    <Content Include="Content\lib\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="Content\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="Content\lib\jquery-validation\Gruntfile.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\accept.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\additional.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\alphanumeric.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\bankaccountNL.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\bankorgiroaccountNL.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\bic.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\cifES.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\cpfBR.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\creditcard.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\creditcardtypes.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\currency.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\dateFA.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\dateITA.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\dateNL.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\extension.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\giroaccountNL.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\iban.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\integer.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\ipv4.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\ipv6.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\lettersonly.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\letterswithbasicpunc.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\mobileNL.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\mobileUK.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\netmask.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\nieES.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\nifES.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\nipPL.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\notEqualTo.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\nowhitespace.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\pattern.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\phoneNL.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\phonesUK.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\phoneUK.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\phoneUS.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\postalcodeBR.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\postalCodeCA.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\postalcodeIT.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\postalcodeNL.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\postcodeUK.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\require_from_group.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\skip_or_fill_minimum.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\statesUS.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\strippedminlength.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\time.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\time12h.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\url2.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\vinUS.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\zipcodeUS.js" />
+    <Content Include="Content\lib\jquery-validation\src\additional\ziprange.js" />
+    <Content Include="Content\lib\jquery-validation\src\ajax.js" />
+    <Content Include="Content\lib\jquery-validation\src\core.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_ar.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_az.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_bg.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_bn_BD.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_ca.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_cs.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_da.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_de.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_el.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_es.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_es_AR.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_es_PE.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_et.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_eu.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_fa.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_fi.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_fr.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_ge.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_gl.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_he.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_hr.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_hu.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_hy_AM.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_id.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_is.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_it.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_ja.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_ka.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_kk.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_ko.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_lt.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_lv.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_mk.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_my.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_nl.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_no.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_pl.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_pt_BR.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_pt_PT.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_ro.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_ru.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_sd.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_si.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_sk.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_sl.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_sr.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_sr_lat.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_sv.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_th.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_tj.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_tr.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_uk.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_ur.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_vi.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_zh.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\messages_zh_TW.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\methods_de.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\methods_es_CL.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\methods_fi.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\methods_nl.js" />
+    <Content Include="Content\lib\jquery-validation\src\localization\methods_pt.js" />
+    <Content Include="Content\lib\jquery\dist\jquery.js" />
+    <Content Include="Content\lib\jquery\dist\jquery.min.js" />
+    <Content Include="Content\lib\jquery\MIT-LICENSE.txt" />
+    <Content Include="Content\lib\jquery\src\ajax.js" />
+    <Content Include="Content\lib\jquery\src\ajax\jsonp.js" />
+    <Content Include="Content\lib\jquery\src\ajax\load.js" />
+    <Content Include="Content\lib\jquery\src\ajax\parseJSON.js" />
+    <Content Include="Content\lib\jquery\src\ajax\parseXML.js" />
+    <Content Include="Content\lib\jquery\src\ajax\script.js" />
+    <Content Include="Content\lib\jquery\src\ajax\var\nonce.js" />
+    <Content Include="Content\lib\jquery\src\ajax\var\rquery.js" />
+    <Content Include="Content\lib\jquery\src\ajax\xhr.js" />
+    <Content Include="Content\lib\jquery\src\attributes.js" />
+    <Content Include="Content\lib\jquery\src\attributes\attr.js" />
+    <Content Include="Content\lib\jquery\src\attributes\classes.js" />
+    <Content Include="Content\lib\jquery\src\attributes\prop.js" />
+    <Content Include="Content\lib\jquery\src\attributes\support.js" />
+    <Content Include="Content\lib\jquery\src\attributes\val.js" />
+    <Content Include="Content\lib\jquery\src\callbacks.js" />
+    <Content Include="Content\lib\jquery\src\core.js" />
+    <Content Include="Content\lib\jquery\src\core\access.js" />
+    <Content Include="Content\lib\jquery\src\core\init.js" />
+    <Content Include="Content\lib\jquery\src\core\parseHTML.js" />
+    <Content Include="Content\lib\jquery\src\core\ready.js" />
+    <Content Include="Content\lib\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="Content\lib\jquery\src\css.js" />
+    <Content Include="Content\lib\jquery\src\css\addGetHookIf.js" />
+    <Content Include="Content\lib\jquery\src\css\curCSS.js" />
+    <Content Include="Content\lib\jquery\src\css\defaultDisplay.js" />
+    <Content Include="Content\lib\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="Content\lib\jquery\src\css\support.js" />
+    <Content Include="Content\lib\jquery\src\css\swap.js" />
+    <Content Include="Content\lib\jquery\src\css\var\cssExpand.js" />
+    <Content Include="Content\lib\jquery\src\css\var\getStyles.js" />
+    <Content Include="Content\lib\jquery\src\css\var\isHidden.js" />
+    <Content Include="Content\lib\jquery\src\css\var\rmargin.js" />
+    <Content Include="Content\lib\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="Content\lib\jquery\src\data.js" />
+    <Content Include="Content\lib\jquery\src\data\accepts.js" />
+    <Content Include="Content\lib\jquery\src\data\Data.js" />
+    <Content Include="Content\lib\jquery\src\data\var\data_priv.js" />
+    <Content Include="Content\lib\jquery\src\data\var\data_user.js" />
+    <Content Include="Content\lib\jquery\src\deferred.js" />
+    <Content Include="Content\lib\jquery\src\deprecated.js" />
+    <Content Include="Content\lib\jquery\src\dimensions.js" />
+    <Content Include="Content\lib\jquery\src\effects.js" />
+    <Content Include="Content\lib\jquery\src\effects\animatedSelector.js" />
+    <Content Include="Content\lib\jquery\src\effects\Tween.js" />
+    <Content Include="Content\lib\jquery\src\event.js" />
+    <Content Include="Content\lib\jquery\src\event\ajax.js" />
+    <Content Include="Content\lib\jquery\src\event\alias.js" />
+    <Content Include="Content\lib\jquery\src\event\support.js" />
+    <Content Include="Content\lib\jquery\src\exports\amd.js" />
+    <Content Include="Content\lib\jquery\src\exports\global.js" />
+    <Content Include="Content\lib\jquery\src\intro.js" />
+    <Content Include="Content\lib\jquery\src\jquery.js" />
+    <Content Include="Content\lib\jquery\src\manipulation.js" />
+    <Content Include="Content\lib\jquery\src\manipulation\support.js" />
+    <Content Include="Content\lib\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="Content\lib\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="Content\lib\jquery\src\offset.js" />
+    <Content Include="Content\lib\jquery\src\outro.js" />
+    <Content Include="Content\lib\jquery\src\queue.js" />
+    <Content Include="Content\lib\jquery\src\queue\delay.js" />
+    <Content Include="Content\lib\jquery\src\selector-native.js" />
+    <Content Include="Content\lib\jquery\src\selector-sizzle.js" />
+    <Content Include="Content\lib\jquery\src\selector.js" />
+    <Content Include="Content\lib\jquery\src\serialize.js" />
+    <Content Include="Content\lib\jquery\src\sizzle\dist\sizzle.js" />
+    <Content Include="Content\lib\jquery\src\sizzle\dist\sizzle.min.js" />
+    <Content Include="Content\lib\jquery\src\traversing.js" />
+    <Content Include="Content\lib\jquery\src\traversing\findFilter.js" />
+    <Content Include="Content\lib\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="Content\lib\jquery\src\var\arr.js" />
+    <Content Include="Content\lib\jquery\src\var\class2type.js" />
+    <Content Include="Content\lib\jquery\src\var\concat.js" />
+    <Content Include="Content\lib\jquery\src\var\hasOwn.js" />
+    <Content Include="Content\lib\jquery\src\var\indexOf.js" />
+    <Content Include="Content\lib\jquery\src\var\pnum.js" />
+    <Content Include="Content\lib\jquery\src\var\push.js" />
+    <Content Include="Content\lib\jquery\src\var\rnotwhite.js" />
+    <Content Include="Content\lib\jquery\src\var\slice.js" />
+    <Content Include="Content\lib\jquery\src\var\strundefined.js" />
+    <Content Include="Content\lib\jquery\src\var\support.js" />
+    <Content Include="Content\lib\jquery\src\var\toString.js" />
+    <Content Include="Content\lib\jquery\src\wrap.js" />
+    <Content Include="Content\lib\Microsoft.jQuery.Unobtrusive.Ajax\jquery.unobtrusive-ajax.js" />
+    <Content Include="Content\lib\Microsoft.jQuery.Unobtrusive.Ajax\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Content\lib\moment\locale\af.js" />
+    <Content Include="Content\lib\moment\locale\ar-dz.js" />
+    <Content Include="Content\lib\moment\locale\ar-kw.js" />
+    <Content Include="Content\lib\moment\locale\ar-ly.js" />
+    <Content Include="Content\lib\moment\locale\ar-ma.js" />
+    <Content Include="Content\lib\moment\locale\ar-sa.js" />
+    <Content Include="Content\lib\moment\locale\ar-tn.js" />
+    <Content Include="Content\lib\moment\locale\ar.js" />
+    <Content Include="Content\lib\moment\locale\az.js" />
+    <Content Include="Content\lib\moment\locale\be.js" />
+    <Content Include="Content\lib\moment\locale\bg.js" />
+    <Content Include="Content\lib\moment\locale\bm.js" />
+    <Content Include="Content\lib\moment\locale\bn.js" />
+    <Content Include="Content\lib\moment\locale\bo.js" />
+    <Content Include="Content\lib\moment\locale\br.js" />
+    <Content Include="Content\lib\moment\locale\bs.js" />
+    <Content Include="Content\lib\moment\locale\ca.js" />
+    <Content Include="Content\lib\moment\locale\cs.js" />
+    <Content Include="Content\lib\moment\locale\cv.js" />
+    <Content Include="Content\lib\moment\locale\cy.js" />
+    <Content Include="Content\lib\moment\locale\da.js" />
+    <Content Include="Content\lib\moment\locale\de-at.js" />
+    <Content Include="Content\lib\moment\locale\de-ch.js" />
+    <Content Include="Content\lib\moment\locale\de.js" />
+    <Content Include="Content\lib\moment\locale\dv.js" />
+    <Content Include="Content\lib\moment\locale\el.js" />
+    <Content Include="Content\lib\moment\locale\en-au.js" />
+    <Content Include="Content\lib\moment\locale\en-ca.js" />
+    <Content Include="Content\lib\moment\locale\en-gb.js" />
+    <Content Include="Content\lib\moment\locale\en-ie.js" />
+    <Content Include="Content\lib\moment\locale\en-nz.js" />
+    <Content Include="Content\lib\moment\locale\eo.js" />
+    <Content Include="Content\lib\moment\locale\es-do.js" />
+    <Content Include="Content\lib\moment\locale\es-us.js" />
+    <Content Include="Content\lib\moment\locale\es.js" />
+    <Content Include="Content\lib\moment\locale\et.js" />
+    <Content Include="Content\lib\moment\locale\eu.js" />
+    <Content Include="Content\lib\moment\locale\fa.js" />
+    <Content Include="Content\lib\moment\locale\fi.js" />
+    <Content Include="Content\lib\moment\locale\fo.js" />
+    <Content Include="Content\lib\moment\locale\fr-ca.js" />
+    <Content Include="Content\lib\moment\locale\fr-ch.js" />
+    <Content Include="Content\lib\moment\locale\fr.js" />
+    <Content Include="Content\lib\moment\locale\fy.js" />
+    <Content Include="Content\lib\moment\locale\gd.js" />
+    <Content Include="Content\lib\moment\locale\gl.js" />
+    <Content Include="Content\lib\moment\locale\gom-latn.js" />
+    <Content Include="Content\lib\moment\locale\gu.js" />
+    <Content Include="Content\lib\moment\locale\he.js" />
+    <Content Include="Content\lib\moment\locale\hi.js" />
+    <Content Include="Content\lib\moment\locale\hr.js" />
+    <Content Include="Content\lib\moment\locale\hu.js" />
+    <Content Include="Content\lib\moment\locale\hy-am.js" />
+    <Content Include="Content\lib\moment\locale\id.js" />
+    <Content Include="Content\lib\moment\locale\is.js" />
+    <Content Include="Content\lib\moment\locale\it.js" />
+    <Content Include="Content\lib\moment\locale\ja.js" />
+    <Content Include="Content\lib\moment\locale\jv.js" />
+    <Content Include="Content\lib\moment\locale\ka.js" />
+    <Content Include="Content\lib\moment\locale\kk.js" />
+    <Content Include="Content\lib\moment\locale\km.js" />
+    <Content Include="Content\lib\moment\locale\kn.js" />
+    <Content Include="Content\lib\moment\locale\ko.js" />
+    <Content Include="Content\lib\moment\locale\ky.js" />
+    <Content Include="Content\lib\moment\locale\lb.js" />
+    <Content Include="Content\lib\moment\locale\lo.js" />
+    <Content Include="Content\lib\moment\locale\lt.js" />
+    <Content Include="Content\lib\moment\locale\lv.js" />
+    <Content Include="Content\lib\moment\locale\me.js" />
+    <Content Include="Content\lib\moment\locale\mi.js" />
+    <Content Include="Content\lib\moment\locale\mk.js" />
+    <Content Include="Content\lib\moment\locale\ml.js" />
+    <Content Include="Content\lib\moment\locale\mr.js" />
+    <Content Include="Content\lib\moment\locale\ms-my.js" />
+    <Content Include="Content\lib\moment\locale\ms.js" />
+    <Content Include="Content\lib\moment\locale\mt.js" />
+    <Content Include="Content\lib\moment\locale\my.js" />
+    <Content Include="Content\lib\moment\locale\nb.js" />
+    <Content Include="Content\lib\moment\locale\ne.js" />
+    <Content Include="Content\lib\moment\locale\nl-be.js" />
+    <Content Include="Content\lib\moment\locale\nl.js" />
+    <Content Include="Content\lib\moment\locale\nn.js" />
+    <Content Include="Content\lib\moment\locale\pa-in.js" />
+    <Content Include="Content\lib\moment\locale\pl.js" />
+    <Content Include="Content\lib\moment\locale\pt-br.js" />
+    <Content Include="Content\lib\moment\locale\pt.js" />
+    <Content Include="Content\lib\moment\locale\ro.js" />
+    <Content Include="Content\lib\moment\locale\ru.js" />
+    <Content Include="Content\lib\moment\locale\sd.js" />
+    <Content Include="Content\lib\moment\locale\se.js" />
+    <Content Include="Content\lib\moment\locale\si.js" />
+    <Content Include="Content\lib\moment\locale\sk.js" />
+    <Content Include="Content\lib\moment\locale\sl.js" />
+    <Content Include="Content\lib\moment\locale\sq.js" />
+    <Content Include="Content\lib\moment\locale\sr-cyrl.js" />
+    <Content Include="Content\lib\moment\locale\sr.js" />
+    <Content Include="Content\lib\moment\locale\ss.js" />
+    <Content Include="Content\lib\moment\locale\sv.js" />
+    <Content Include="Content\lib\moment\locale\sw.js" />
+    <Content Include="Content\lib\moment\locale\ta.js" />
+    <Content Include="Content\lib\moment\locale\te.js" />
+    <Content Include="Content\lib\moment\locale\tet.js" />
+    <Content Include="Content\lib\moment\locale\th.js" />
+    <Content Include="Content\lib\moment\locale\tl-ph.js" />
+    <Content Include="Content\lib\moment\locale\tlh.js" />
+    <Content Include="Content\lib\moment\locale\tr.js" />
+    <Content Include="Content\lib\moment\locale\tzl.js" />
+    <Content Include="Content\lib\moment\locale\tzm-latn.js" />
+    <Content Include="Content\lib\moment\locale\tzm.js" />
+    <Content Include="Content\lib\moment\locale\uk.js" />
+    <Content Include="Content\lib\moment\locale\ur.js" />
+    <Content Include="Content\lib\moment\locale\uz-latn.js" />
+    <Content Include="Content\lib\moment\locale\uz.js" />
+    <Content Include="Content\lib\moment\locale\vi.js" />
+    <Content Include="Content\lib\moment\locale\x-pseudo.js" />
+    <Content Include="Content\lib\moment\locale\yo.js" />
+    <Content Include="Content\lib\moment\locale\zh-cn.js" />
+    <Content Include="Content\lib\moment\locale\zh-hk.js" />
+    <Content Include="Content\lib\moment\locale\zh-tw.js" />
+    <Content Include="Content\lib\moment\min\locales.js" />
+    <Content Include="Content\lib\moment\min\locales.min.js" />
+    <Content Include="Content\lib\moment\min\moment-with-locales.js" />
+    <Content Include="Content\lib\moment\min\moment-with-locales.min.js" />
+    <Content Include="Content\lib\moment\min\moment.min.js" />
+    <Content Include="Content\lib\moment\moment.js" />
+    <Content Include="Content\lib\moment\src\lib\create\check-overflow.js" />
+    <Content Include="Content\lib\moment\src\lib\create\date-from-array.js" />
+    <Content Include="Content\lib\moment\src\lib\create\from-anything.js" />
+    <Content Include="Content\lib\moment\src\lib\create\from-array.js" />
+    <Content Include="Content\lib\moment\src\lib\create\from-object.js" />
+    <Content Include="Content\lib\moment\src\lib\create\from-string-and-array.js" />
+    <Content Include="Content\lib\moment\src\lib\create\from-string-and-format.js" />
+    <Content Include="Content\lib\moment\src\lib\create\from-string.js" />
+    <Content Include="Content\lib\moment\src\lib\create\local.js" />
+    <Content Include="Content\lib\moment\src\lib\create\parsing-flags.js" />
+    <Content Include="Content\lib\moment\src\lib\create\utc.js" />
+    <Content Include="Content\lib\moment\src\lib\create\valid.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\abs.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\add-subtract.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\as.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\bubble.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\clone.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\constructor.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\create.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\duration.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\get.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\humanize.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\iso-string.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\prototype.js" />
+    <Content Include="Content\lib\moment\src\lib\duration\valid.js" />
+    <Content Include="Content\lib\moment\src\lib\format\format.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\base-config.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\calendar.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\constructor.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\en.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\formats.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\invalid.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\lists.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\locale.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\locales.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\ordinal.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\pre-post-format.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\prototype.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\relative.js" />
+    <Content Include="Content\lib\moment\src\lib\locale\set.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\add-subtract.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\calendar.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\clone.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\compare.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\constructor.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\creation-data.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\diff.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\format.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\from.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\get-set.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\locale.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\min-max.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\moment.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\now.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\prototype.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\start-end-of.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\to-type.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\to.js" />
+    <Content Include="Content\lib\moment\src\lib\moment\valid.js" />
+    <Content Include="Content\lib\moment\src\lib\parse\regex.js" />
+    <Content Include="Content\lib\moment\src\lib\parse\token.js" />
+    <Content Include="Content\lib\moment\src\lib\units\aliases.js" />
+    <Content Include="Content\lib\moment\src\lib\units\constants.js" />
+    <Content Include="Content\lib\moment\src\lib\units\day-of-month.js" />
+    <Content Include="Content\lib\moment\src\lib\units\day-of-week.js" />
+    <Content Include="Content\lib\moment\src\lib\units\day-of-year.js" />
+    <Content Include="Content\lib\moment\src\lib\units\hour.js" />
+    <Content Include="Content\lib\moment\src\lib\units\millisecond.js" />
+    <Content Include="Content\lib\moment\src\lib\units\minute.js" />
+    <Content Include="Content\lib\moment\src\lib\units\month.js" />
+    <Content Include="Content\lib\moment\src\lib\units\offset.js" />
+    <Content Include="Content\lib\moment\src\lib\units\priorities.js" />
+    <Content Include="Content\lib\moment\src\lib\units\quarter.js" />
+    <Content Include="Content\lib\moment\src\lib\units\second.js" />
+    <Content Include="Content\lib\moment\src\lib\units\timestamp.js" />
+    <Content Include="Content\lib\moment\src\lib\units\timezone.js" />
+    <Content Include="Content\lib\moment\src\lib\units\units.js" />
+    <Content Include="Content\lib\moment\src\lib\units\week-calendar-utils.js" />
+    <Content Include="Content\lib\moment\src\lib\units\week-year.js" />
+    <Content Include="Content\lib\moment\src\lib\units\week.js" />
+    <Content Include="Content\lib\moment\src\lib\units\year.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\abs-ceil.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\abs-floor.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\abs-round.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\compare-arrays.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\defaults.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\deprecate.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\extend.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\has-own-prop.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\hooks.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\index-of.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\is-array.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\is-date.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\is-function.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\is-number.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\is-object-empty.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\is-object.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\is-undefined.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\keys.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\map.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\mod.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\some.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\to-int.js" />
+    <Content Include="Content\lib\moment\src\lib\utils\zero-fill.js" />
+    <Content Include="Content\lib\moment\src\locale\af.js" />
+    <Content Include="Content\lib\moment\src\locale\ar-dz.js" />
+    <Content Include="Content\lib\moment\src\locale\ar-kw.js" />
+    <Content Include="Content\lib\moment\src\locale\ar-ly.js" />
+    <Content Include="Content\lib\moment\src\locale\ar-ma.js" />
+    <Content Include="Content\lib\moment\src\locale\ar-sa.js" />
+    <Content Include="Content\lib\moment\src\locale\ar-tn.js" />
+    <Content Include="Content\lib\moment\src\locale\ar.js" />
+    <Content Include="Content\lib\moment\src\locale\az.js" />
+    <Content Include="Content\lib\moment\src\locale\be.js" />
+    <Content Include="Content\lib\moment\src\locale\bg.js" />
+    <Content Include="Content\lib\moment\src\locale\bm.js" />
+    <Content Include="Content\lib\moment\src\locale\bn.js" />
+    <Content Include="Content\lib\moment\src\locale\bo.js" />
+    <Content Include="Content\lib\moment\src\locale\br.js" />
+    <Content Include="Content\lib\moment\src\locale\bs.js" />
+    <Content Include="Content\lib\moment\src\locale\ca.js" />
+    <Content Include="Content\lib\moment\src\locale\cs.js" />
+    <Content Include="Content\lib\moment\src\locale\cv.js" />
+    <Content Include="Content\lib\moment\src\locale\cy.js" />
+    <Content Include="Content\lib\moment\src\locale\da.js" />
+    <Content Include="Content\lib\moment\src\locale\de-at.js" />
+    <Content Include="Content\lib\moment\src\locale\de-ch.js" />
+    <Content Include="Content\lib\moment\src\locale\de.js" />
+    <Content Include="Content\lib\moment\src\locale\dv.js" />
+    <Content Include="Content\lib\moment\src\locale\el.js" />
+    <Content Include="Content\lib\moment\src\locale\en-au.js" />
+    <Content Include="Content\lib\moment\src\locale\en-ca.js" />
+    <Content Include="Content\lib\moment\src\locale\en-gb.js" />
+    <Content Include="Content\lib\moment\src\locale\en-ie.js" />
+    <Content Include="Content\lib\moment\src\locale\en-nz.js" />
+    <Content Include="Content\lib\moment\src\locale\eo.js" />
+    <Content Include="Content\lib\moment\src\locale\es-do.js" />
+    <Content Include="Content\lib\moment\src\locale\es-us.js" />
+    <Content Include="Content\lib\moment\src\locale\es.js" />
+    <Content Include="Content\lib\moment\src\locale\et.js" />
+    <Content Include="Content\lib\moment\src\locale\eu.js" />
+    <Content Include="Content\lib\moment\src\locale\fa.js" />
+    <Content Include="Content\lib\moment\src\locale\fi.js" />
+    <Content Include="Content\lib\moment\src\locale\fo.js" />
+    <Content Include="Content\lib\moment\src\locale\fr-ca.js" />
+    <Content Include="Content\lib\moment\src\locale\fr-ch.js" />
+    <Content Include="Content\lib\moment\src\locale\fr.js" />
+    <Content Include="Content\lib\moment\src\locale\fy.js" />
+    <Content Include="Content\lib\moment\src\locale\gd.js" />
+    <Content Include="Content\lib\moment\src\locale\gl.js" />
+    <Content Include="Content\lib\moment\src\locale\gom-latn.js" />
+    <Content Include="Content\lib\moment\src\locale\gu.js" />
+    <Content Include="Content\lib\moment\src\locale\he.js" />
+    <Content Include="Content\lib\moment\src\locale\hi.js" />
+    <Content Include="Content\lib\moment\src\locale\hr.js" />
+    <Content Include="Content\lib\moment\src\locale\hu.js" />
+    <Content Include="Content\lib\moment\src\locale\hy-am.js" />
+    <Content Include="Content\lib\moment\src\locale\id.js" />
+    <Content Include="Content\lib\moment\src\locale\is.js" />
+    <Content Include="Content\lib\moment\src\locale\it.js" />
+    <Content Include="Content\lib\moment\src\locale\ja.js" />
+    <Content Include="Content\lib\moment\src\locale\jv.js" />
+    <Content Include="Content\lib\moment\src\locale\ka.js" />
+    <Content Include="Content\lib\moment\src\locale\kk.js" />
+    <Content Include="Content\lib\moment\src\locale\km.js" />
+    <Content Include="Content\lib\moment\src\locale\kn.js" />
+    <Content Include="Content\lib\moment\src\locale\ko.js" />
+    <Content Include="Content\lib\moment\src\locale\ky.js" />
+    <Content Include="Content\lib\moment\src\locale\lb.js" />
+    <Content Include="Content\lib\moment\src\locale\lo.js" />
+    <Content Include="Content\lib\moment\src\locale\lt.js" />
+    <Content Include="Content\lib\moment\src\locale\lv.js" />
+    <Content Include="Content\lib\moment\src\locale\me.js" />
+    <Content Include="Content\lib\moment\src\locale\mi.js" />
+    <Content Include="Content\lib\moment\src\locale\mk.js" />
+    <Content Include="Content\lib\moment\src\locale\ml.js" />
+    <Content Include="Content\lib\moment\src\locale\mr.js" />
+    <Content Include="Content\lib\moment\src\locale\ms-my.js" />
+    <Content Include="Content\lib\moment\src\locale\ms.js" />
+    <Content Include="Content\lib\moment\src\locale\mt.js" />
+    <Content Include="Content\lib\moment\src\locale\my.js" />
+    <Content Include="Content\lib\moment\src\locale\nb.js" />
+    <Content Include="Content\lib\moment\src\locale\ne.js" />
+    <Content Include="Content\lib\moment\src\locale\nl-be.js" />
+    <Content Include="Content\lib\moment\src\locale\nl.js" />
+    <Content Include="Content\lib\moment\src\locale\nn.js" />
+    <Content Include="Content\lib\moment\src\locale\pa-in.js" />
+    <Content Include="Content\lib\moment\src\locale\pl.js" />
+    <Content Include="Content\lib\moment\src\locale\pt-br.js" />
+    <Content Include="Content\lib\moment\src\locale\pt.js" />
+    <Content Include="Content\lib\moment\src\locale\ro.js" />
+    <Content Include="Content\lib\moment\src\locale\ru.js" />
+    <Content Include="Content\lib\moment\src\locale\sd.js" />
+    <Content Include="Content\lib\moment\src\locale\se.js" />
+    <Content Include="Content\lib\moment\src\locale\si.js" />
+    <Content Include="Content\lib\moment\src\locale\sk.js" />
+    <Content Include="Content\lib\moment\src\locale\sl.js" />
+    <Content Include="Content\lib\moment\src\locale\sq.js" />
+    <Content Include="Content\lib\moment\src\locale\sr-cyrl.js" />
+    <Content Include="Content\lib\moment\src\locale\sr.js" />
+    <Content Include="Content\lib\moment\src\locale\ss.js" />
+    <Content Include="Content\lib\moment\src\locale\sv.js" />
+    <Content Include="Content\lib\moment\src\locale\sw.js" />
+    <Content Include="Content\lib\moment\src\locale\ta.js" />
+    <Content Include="Content\lib\moment\src\locale\te.js" />
+    <Content Include="Content\lib\moment\src\locale\tet.js" />
+    <Content Include="Content\lib\moment\src\locale\th.js" />
+    <Content Include="Content\lib\moment\src\locale\tl-ph.js" />
+    <Content Include="Content\lib\moment\src\locale\tlh.js" />
+    <Content Include="Content\lib\moment\src\locale\tr.js" />
+    <Content Include="Content\lib\moment\src\locale\tzl.js" />
+    <Content Include="Content\lib\moment\src\locale\tzm-latn.js" />
+    <Content Include="Content\lib\moment\src\locale\tzm.js" />
+    <Content Include="Content\lib\moment\src\locale\uk.js" />
+    <Content Include="Content\lib\moment\src\locale\ur.js" />
+    <Content Include="Content\lib\moment\src\locale\uz-latn.js" />
+    <Content Include="Content\lib\moment\src\locale\uz.js" />
+    <Content Include="Content\lib\moment\src\locale\vi.js" />
+    <Content Include="Content\lib\moment\src\locale\x-pseudo.js" />
+    <Content Include="Content\lib\moment\src\locale\yo.js" />
+    <Content Include="Content\lib\moment\src\locale\zh-cn.js" />
+    <Content Include="Content\lib\moment\src\locale\zh-hk.js" />
+    <Content Include="Content\lib\moment\src\locale\zh-tw.js" />
+    <Content Include="Content\lib\moment\src\moment.js" />
+    <Content Include="Content\lib\moment\templates\default.js" />
+    <Content Include="Content\lib\moment\templates\locale-header.js" />
+    <Content Include="Content\lib\moment\templates\test-header.js" />
+    <Content Include="Content\lib\toastr\toastr.min.css" />
+    <Content Include="Content\lib\toastr\toastr.min.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Global.asax" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\lib\bootstrap\.bower.json" />
+    <Content Include="Content\lib\bootstrap\bower.json" />
+    <Content Include="Content\lib\bootstrap\CHANGELOG.md" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Content\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="Content\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\lib\bootstrap\Gemfile" />
+    <Content Include="Content\lib\bootstrap\Gemfile.lock" />
+    <Content Include="Content\lib\bootstrap\grunt\.jshintrc" />
+    <Content Include="Content\lib\bootstrap\grunt\configBridge.json" />
+    <Content Include="Content\lib\bootstrap\grunt\npm-shrinkwrap.json" />
+    <Content Include="Content\lib\bootstrap\grunt\sauce_browsers.yml" />
+    <Content Include="Content\lib\bootstrap\ISSUE_TEMPLATE.md" />
+    <Content Include="Content\lib\bootstrap\js\.jscsrc" />
+    <Content Include="Content\lib\bootstrap\js\.jshintrc" />
+    <Content Include="Content\lib\bootstrap\less\.csscomb.json" />
+    <Content Include="Content\lib\bootstrap\less\.csslintrc" />
+    <Content Include="Content\lib\bootstrap\less\alerts.less" />
+    <Content Include="Content\lib\bootstrap\less\badges.less" />
+    <Content Include="Content\lib\bootstrap\less\bootstrap.less" />
+    <Content Include="Content\lib\bootstrap\less\breadcrumbs.less" />
+    <Content Include="Content\lib\bootstrap\less\button-groups.less" />
+    <Content Include="Content\lib\bootstrap\less\buttons.less" />
+    <Content Include="Content\lib\bootstrap\less\carousel.less" />
+    <Content Include="Content\lib\bootstrap\less\close.less" />
+    <Content Include="Content\lib\bootstrap\less\code.less" />
+    <Content Include="Content\lib\bootstrap\less\component-animations.less" />
+    <Content Include="Content\lib\bootstrap\less\dropdowns.less" />
+    <Content Include="Content\lib\bootstrap\less\forms.less" />
+    <Content Include="Content\lib\bootstrap\less\glyphicons.less" />
+    <Content Include="Content\lib\bootstrap\less\grid.less" />
+    <Content Include="Content\lib\bootstrap\less\input-groups.less" />
+    <Content Include="Content\lib\bootstrap\less\jumbotron.less" />
+    <Content Include="Content\lib\bootstrap\less\labels.less" />
+    <Content Include="Content\lib\bootstrap\less\list-group.less" />
+    <Content Include="Content\lib\bootstrap\less\media.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\alerts.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\background-variant.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\border-radius.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\buttons.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\center-block.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\clearfix.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\forms.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\gradients.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\grid-framework.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\grid.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\hide-text.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\image.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\labels.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\list-group.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\nav-divider.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\nav-vertical-align.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\opacity.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\pagination.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\panels.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\progress-bar.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\reset-filter.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\reset-text.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\resize.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\responsive-visibility.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\size.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\tab-focus.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\table-row.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\text-emphasis.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\text-overflow.less" />
+    <Content Include="Content\lib\bootstrap\less\mixins\vendor-prefixes.less" />
+    <Content Include="Content\lib\bootstrap\less\modals.less" />
+    <Content Include="Content\lib\bootstrap\less\navbar.less" />
+    <Content Include="Content\lib\bootstrap\less\navs.less" />
+    <Content Include="Content\lib\bootstrap\less\normalize.less" />
+    <Content Include="Content\lib\bootstrap\less\pager.less" />
+    <Content Include="Content\lib\bootstrap\less\pagination.less" />
+    <Content Include="Content\lib\bootstrap\less\panels.less" />
+    <Content Include="Content\lib\bootstrap\less\popovers.less" />
+    <Content Include="Content\lib\bootstrap\less\print.less" />
+    <Content Include="Content\lib\bootstrap\less\progress-bars.less" />
+    <Content Include="Content\lib\bootstrap\less\responsive-embed.less" />
+    <Content Include="Content\lib\bootstrap\less\responsive-utilities.less" />
+    <Content Include="Content\lib\bootstrap\less\scaffolding.less" />
+    <Content Include="Content\lib\bootstrap\less\tables.less" />
+    <Content Include="Content\lib\bootstrap\less\theme.less" />
+    <Content Include="Content\lib\bootstrap\less\thumbnails.less" />
+    <Content Include="Content\lib\bootstrap\less\tooltip.less" />
+    <Content Include="Content\lib\bootstrap\less\type.less" />
+    <Content Include="Content\lib\bootstrap\less\utilities.less" />
+    <Content Include="Content\lib\bootstrap\less\variables.less" />
+    <Content Include="Content\lib\bootstrap\less\wells.less" />
+    <Content Include="Content\lib\bootstrap\LICENSE" />
+    <Content Include="Content\lib\bootstrap\nuget\bootstrap.less.nuspec" />
+    <Content Include="Content\lib\bootstrap\nuget\bootstrap.nuspec" />
+    <Content Include="Content\lib\bootstrap\nuget\MyGet.ps1" />
+    <Content Include="Content\lib\bootstrap\package.json" />
+    <Content Include="Content\lib\bootstrap\README.md" />
+    <Content Include="Content\lib\font-awesome\.bower.json" />
+    <Content Include="Content\lib\font-awesome\.npmignore" />
+    <Content Include="Content\lib\font-awesome\bower.json" />
+    <Content Include="Content\lib\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\lib\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\lib\font-awesome\less\animated.less" />
+    <Content Include="Content\lib\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\lib\font-awesome\less\core.less" />
+    <Content Include="Content\lib\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\lib\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\lib\font-awesome\less\icons.less" />
+    <Content Include="Content\lib\font-awesome\less\larger.less" />
+    <Content Include="Content\lib\font-awesome\less\list.less" />
+    <Content Include="Content\lib\font-awesome\less\mixins.less" />
+    <Content Include="Content\lib\font-awesome\less\path.less" />
+    <Content Include="Content\lib\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\lib\font-awesome\less\screen-reader.less" />
+    <Content Include="Content\lib\font-awesome\less\stacked.less" />
+    <Content Include="Content\lib\font-awesome\less\variables.less" />
+    <Content Include="Content\lib\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_core.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_list.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_path.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\lib\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\lib\jquery-validation-unobtrusive\.bower.json" />
+    <Content Include="Content\lib\jquery-validation-unobtrusive\bower.json" />
+    <Content Include="Content\lib\jquery-validation\.bower.json" />
+    <Content Include="Content\lib\jquery-validation\bower.json" />
+    <Content Include="Content\lib\jquery-validation\changelog.md" />
+    <Content Include="Content\lib\jquery-validation\CONTRIBUTING.md" />
+    <Content Include="Content\lib\jquery-validation\LICENSE.md" />
+    <Content Include="Content\lib\jquery-validation\package.json" />
+    <Content Include="Content\lib\jquery-validation\README.md" />
+    <Content Include="Content\lib\jquery-validation\validation.jquery.json" />
+    <Content Include="Content\lib\jquery\.bower.json" />
+    <Content Include="Content\lib\jquery\bower.json" />
+    <Content Include="Content\lib\jquery\dist\jquery.min.map" />
+    <Content Include="Content\lib\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="Content\lib\Microsoft.jQuery.Unobtrusive.Ajax\.bower.json" />
+    <Content Include="Content\lib\Microsoft.jQuery.Unobtrusive.Ajax\bower.json" />
+    <Content Include="Content\lib\moment\.bower.json" />
+    <Content Include="Content\lib\moment\bower.json" />
+    <Content Include="Content\lib\moment\CHANGELOG.md" />
+    <Content Include="Content\lib\moment\LICENSE" />
+    <Content Include="Content\lib\moment\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Content\lib\moment\moment.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ServiceLog\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TimeZone\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\js\app\servicelog\cw.servicelogs.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_modalForm.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="0" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
+    <VisualStudio>
+      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>21194</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3895/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v15.0\WebApplications\Microsoft.WebApplication.targets" />
+</Project>
